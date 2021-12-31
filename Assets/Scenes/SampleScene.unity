@@ -121,6 +121,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &136503751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 136503753}
+  - component: {fileID: 136503752}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &136503752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136503751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78357c97482d549a9bd02bdd139b31c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPoint: {x: 0, y: 0, z: 0}
+  endPoint: {x: 0, y: 0, z: 0}
+  isDragged: 0
+  isReleased: 0
+--- !u!4 &136503753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136503751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &377983404
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +315,7 @@ GameObject:
   - component: {fileID: 401322285}
   - component: {fileID: 401322288}
   - component: {fileID: 401322287}
+  - component: {fileID: 401322289}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -376,6 +424,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &401322289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401322284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842df33ea24e4993ae19c01246c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.3
+  minPower: {x: -3, y: -3}
+  maxPower: {x: 3, y: 3}
+  turn: 1
+  movePermission: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1051,7 @@ GameObject:
   - component: {fileID: 837253093}
   - component: {fileID: 837253096}
   - component: {fileID: 837253095}
+  - component: {fileID: 837253097}
   m_Layer: 0
   m_Name: Opp3
   m_TagString: Untagged
@@ -1094,6 +1160,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &837253097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837253092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842df33ea24e4993ae19c01246c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.1
+  minPower: {x: -3, y: -3}
+  maxPower: {x: 3, y: 3}
+  turn: 0
+  movePermission: 0
 --- !u!1 &873746015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1602,7 @@ GameObject:
   - component: {fileID: 1340844710}
   - component: {fileID: 1340844713}
   - component: {fileID: 1340844712}
+  - component: {fileID: 1340844714}
   m_Layer: 0
   m_Name: Opp2
   m_TagString: Untagged
@@ -1627,6 +1711,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1340844714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340844709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842df33ea24e4993ae19c01246c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.1
+  minPower: {x: -3, y: -3}
+  maxPower: {x: 3, y: 3}
+  turn: 0
+  movePermission: 0
 --- !u!1 &1443506671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1787,7 @@ GameObject:
   - component: {fileID: 1456709148}
   - component: {fileID: 1456709151}
   - component: {fileID: 1456709150}
+  - component: {fileID: 1456709152}
   m_Layer: 0
   m_Name: Opp1
   m_TagString: Untagged
@@ -1794,6 +1896,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1456709152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456709147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842df33ea24e4993ae19c01246c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.1
+  minPower: {x: -3, y: -3}
+  maxPower: {x: 3, y: 3}
+  turn: 0
+  movePermission: 0
 --- !u!1 &1461510471
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2233,7 @@ GameObject:
   - component: {fileID: 1689874640}
   - component: {fileID: 1689874643}
   - component: {fileID: 1689874642}
+  - component: {fileID: 1689874644}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -2222,6 +2342,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1689874644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689874639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842df33ea24e4993ae19c01246c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.3
+  minPower: {x: -3, y: -3}
+  maxPower: {x: 3, y: 3}
+  turn: 1
+  movePermission: 0
 --- !u!1 &1861301475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2665,7 @@ GameObject:
   - component: {fileID: 2119177713}
   - component: {fileID: 2119177716}
   - component: {fileID: 2119177715}
+  - component: {fileID: 2119177717}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -2636,3 +2774,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2119177717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119177712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc842df33ea24e4993ae19c01246c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0.3
+  minPower: {x: -3, y: -3}
+  maxPower: {x: 3, y: 3}
+  turn: 1
+  movePermission: 0
