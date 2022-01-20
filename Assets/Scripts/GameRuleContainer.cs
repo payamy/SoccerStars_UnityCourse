@@ -4,7 +4,8 @@ namespace DefaultNamespace
 {
     public class GameRuleContainer : MonoBehaviour
     {
-        
+        public PlayerNumberContainer playerNumberContainer;
+        public GameWinRule gameWinRule;
         
         #region Singleton
 

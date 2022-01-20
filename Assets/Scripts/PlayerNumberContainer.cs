@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
+[Serializable]
 public abstract class PlayerNumberContainer
 {
     public GameObject team1Piece;
