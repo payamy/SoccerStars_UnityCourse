@@ -11,6 +11,7 @@ public class PieceController : MonoBehaviour
 
     public bool turn;
     public bool movePermission;
+    public Transform arrow;
 
     public Rigidbody2D rb;
 
@@ -34,11 +35,24 @@ public class PieceController : MonoBehaviour
             //    Mathf.Clamp(player.startPoint.y - player.endPoint.y, minPower.y, maxPower.y));
             
             force = new Vector2(player.startPoint.x - player.endPoint.x, player.startPoint.y - player.endPoint.y);
-
+            arrow.gameObject.SetActive(false);
             rb.AddForce(force * power, ForceMode2D.Impulse);
             GameManager.Instance.turnStarted = true;
             player.isReleased = false;
             movePermission = false;
+        }
+        else if (movePermission && !player.isReleased)
+        {
+            
+            arrow.gameObject.SetActive(true);
+            var endPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            print(endPoint);
+            endPoint.z = 15;
+            arrow.rotation = Quaternion.FromToRotation(Vector3.down,
+                new Vector2(player.startPoint.x - endPoint.x, player.startPoint.y - endPoint.y));
+            var arrowScale = arrow.localScale;
+            arrowScale.y = new Vector2(player.startPoint.x - endPoint.x, player.endPoint.y - endPoint.y).magnitude;
+            arrow.localScale = arrowScale;
         }
 
         if (rb.velocity.magnitude < 0.001f)
