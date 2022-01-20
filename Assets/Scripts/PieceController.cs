@@ -38,6 +38,7 @@ public class PieceController : MonoBehaviour
             arrow.gameObject.SetActive(false);
             rb.AddForce(force * power, ForceMode2D.Impulse);
             GameManager.Instance.turnStarted = true;
+            arrow.localScale = Vector3.one;
             player.isReleased = false;
             movePermission = false;
         }
@@ -46,12 +47,11 @@ public class PieceController : MonoBehaviour
             
             arrow.gameObject.SetActive(true);
             var endPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            print(endPoint);
             endPoint.z = 15;
             arrow.rotation = Quaternion.FromToRotation(Vector3.down,
                 new Vector2(player.startPoint.x - endPoint.x, player.startPoint.y - endPoint.y));
             var arrowScale = arrow.localScale;
-            arrowScale.y = new Vector2(player.startPoint.x - endPoint.x, player.endPoint.y - endPoint.y).magnitude;
+            arrowScale.y = new Vector2(player.startPoint.x - endPoint.x, player.startPoint.y - endPoint.y).magnitude;
             arrow.localScale = arrowScale;
         }
 

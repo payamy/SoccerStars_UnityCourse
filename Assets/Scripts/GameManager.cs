@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     public bool turnStarted;
-    public double gameTime;
+    public bool gameFinished;
+    public float gameTime;
 
     public static GameManager Instance
     {
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (gameFinished) return;
+        gameTime += Time.deltaTime;
         var  gameStatus = GameRuleContainer.Instance.gameWinRule.CheckWin();
         if (gameStatus != WinStatus.NoWin)
         {
