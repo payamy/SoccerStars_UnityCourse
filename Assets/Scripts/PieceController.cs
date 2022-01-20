@@ -41,5 +41,10 @@ public class PieceController : MonoBehaviour
             movePermission = false;
         }
 
+        if (rb.velocity.magnitude < 0.001f)
+        {
+            rb.velocity = Vector2.zero;
+        }
+
     }
 }

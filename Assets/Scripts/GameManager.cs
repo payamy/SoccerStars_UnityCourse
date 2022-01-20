@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public List<PieceController> player1PieceControllers;
     public List<PieceController> player2PieceControllers;
     public BallController ballController;
+    public WinStatus winStatus = WinStatus.NoWin;
     private int turn;
 
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
     public bool turnStarted;
+    public double gameTime;
 
     public static GameManager Instance
     {
@@ -48,6 +50,16 @@ public class GameManager : MonoBehaviour
         InstantiatePieces();
     }
 
+    private void Update()
+    {
+        var  gameStatus = GameRuleContainer.Instance.gameWinRule.CheckWin();
+        if (gameStatus != WinStatus.NoWin)
+        {
+            Destroy(ballController.rb);
+            print("Won Game");
+        }
+    }
+
     private void InstantiatePieces()
     {
         var playerNumberContainer = GameRuleContainer.Instance.playerNumberContainer;
@@ -66,25 +78,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (leftPoint == maxPoint)
-        {
-            // call win event
-            eventSystem.OnLeftWin.Invoke();
-
-            // make ball fixed
-            Destroy(FindObjectOfType<BallController>().GetComponent<Rigidbody2D>());
-        }
-        if (rightPoint == maxPoint)
-        {
-            // call lose event
-            eventSystem.OnRightWin.Invoke();
-
-            // make ball fixed
-            Destroy(FindObjectOfType<BallController>().GetComponent<Rigidbody2D>());
-        }
-    }
     public bool PiecesMoveEnded()
     {
         foreach (var player1Piece in player1PieceControllers)
