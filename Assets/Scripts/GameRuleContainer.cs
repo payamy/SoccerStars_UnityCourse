@@ -6,6 +6,8 @@ namespace DefaultNamespace
     {
         public PlayerNumberContainer playerNumberContainer;
         public GameWinRule gameWinRule;
+        public PieceController team1Piece;
+        public PieceController team2Piece;
         
         #region Singleton
 
