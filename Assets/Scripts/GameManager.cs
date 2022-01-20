@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public List<PieceController> player2PieceControllers;
     public BallController ballController;
     public WinStatus winStatus = WinStatus.NoWin;
-    private int turn;
+    public int turn;
 
 
     public int maxPoint;
@@ -56,8 +56,20 @@ public class GameManager : MonoBehaviour
         var  gameStatus = GameRuleContainer.Instance.gameWinRule.CheckWin();
         if (gameStatus != WinStatus.NoWin)
         {
+            
             Destroy(ballController.rb);
-            print("Won Game");
+            if (gameStatus == WinStatus.Player1)
+            {
+                eventSystem.onLeftWin.Invoke();
+            }
+            else if (gameStatus == WinStatus.Player2)
+            {
+                eventSystem.onRightWin.Invoke();
+            }
+            else
+            {
+                eventSystem.onTie.Invoke();
+            }
         }
     }
 

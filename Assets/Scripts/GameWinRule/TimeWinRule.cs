@@ -1,9 +1,10 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class TimeWinRule : GameWinRule
 {
-    private float time = 90f;
+    private float time = 30f;
 
     public override WinStatus CheckWin()
     {

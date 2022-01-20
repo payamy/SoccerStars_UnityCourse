@@ -18,12 +18,15 @@ public class PieceController : MonoBehaviour
     Vector2 force;
 
     private PlayerController player;
+    private Vector3 arrowFirstScale;
 
     // Start is called before the first frame update
     void Start()
     {
         movePermission = false;
         player = FindObjectOfType<PlayerController>();
+        arrowFirstScale = arrow.localScale;
+        print(arrowFirstScale);
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class PieceController : MonoBehaviour
             arrow.gameObject.SetActive(false);
             rb.AddForce(force * power, ForceMode2D.Impulse);
             GameManager.Instance.turnStarted = true;
-            arrow.localScale = Vector3.one;
+            arrow.localScale = arrowFirstScale;
             player.isReleased = false;
             movePermission = false;
         }
@@ -55,7 +58,7 @@ public class PieceController : MonoBehaviour
             arrow.localScale = arrowScale;
         }
 
-        if (rb.velocity.magnitude < 0.001f)
+        if (rb.velocity.magnitude < 0.005f)
         {
             rb.velocity = Vector2.zero;
         }

@@ -6,16 +6,18 @@ using UnityEngine.Events;
 
 public class EventSystemManager : MonoBehaviour
 {
-    public WinEvent winEvent;
-    public UnityEvent OnLeftWin;
-    public UnityEvent OnRightWin;
+    public WinEvent goalEvent;
+    public UnityEvent onLeftWin;
+    public UnityEvent onRightWin;
+    public UnityEvent onTie;
 
 
     private void Awake()
     {
-        winEvent = new WinEvent();
-        OnLeftWin = new UnityEvent();
-        OnRightWin = new UnityEvent();
+        goalEvent = new WinEvent();
+        onLeftWin = new UnityEvent();
+        onRightWin = new UnityEvent();
+        onTie = new UnityEvent();
     }
 }
 

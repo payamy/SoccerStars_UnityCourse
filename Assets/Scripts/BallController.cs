@@ -10,7 +10,8 @@ public class BallController : MonoBehaviour
     
     private void Update()
     {
-        if (rb.velocity.magnitude < 0.001f)
+        if (!rb) return;
+        if (rb.velocity.magnitude < 0.005f)
         {
             rb.velocity = Vector2.zero;
         }
@@ -23,7 +24,7 @@ public class BallController : MonoBehaviour
             GoalController goalController = collision.gameObject.GetComponent<GoalController>();
             var goalSide = goalController.isLeft ? GoalSide.Left : GoalSide.Right;
             GameManager.Instance.BallEnteredGoal(goalSide);
-            eventSystemManager.winEvent.Invoke(goalSide);
+            eventSystemManager.goalEvent.Invoke(goalSide);
         }
     }
 }
