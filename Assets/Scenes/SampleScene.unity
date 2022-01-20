@@ -1435,7 +1435,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1443506672}
   - component: {fileID: 1443506673}
-  - component: {fileID: 1443506674}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1479,22 +1478,6 @@ MonoBehaviour:
   eventSystem: {fileID: 664281963}
   turnStarted: 0
   gameTime: 0
---- !u!114 &1443506674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443506671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bda82723cdd4dbfa1ee26fb39432bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team1Piece: {fileID: 34841553485475373, guid: dd9a4f90c977a45f0946cda63671d96a,
-    type: 3}
-  team2Piece: {fileID: 4505162825130230624, guid: b8cf5fc3837fe46519ca7c63a8e1b2dd,
-    type: 3}
 --- !u!1 &1461510471
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,8 @@
 using System;
 
-namespace DefaultNamespace
+
+[Serializable]
+public abstract class GameWinRule
 {
-    [Serializable]
-    public abstract class GameWinRule
-    {
-        public abstract WinStatus CheckWin();
-    }
+    public abstract WinStatus CheckWin();
 }

@@ -1,7 +1,5 @@
-namespace DefaultNamespace
+
+public enum WinStatus
 {
-    public enum WinStatus
-    {
-        NoWin, Tie, Player1, Player2
-    }
+    NoWin, Tie, Player1, Player2
 }

@@ -1,5 +1,4 @@
 using System;
-using DefaultNamespace;
 
 [Serializable]
 public class TimeWinRule : GameWinRule
