@@ -12,7 +12,7 @@ public class PieceController : MonoBehaviour
     public bool turn;
     public bool movePermission;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     Vector2 force;
 
@@ -23,8 +23,6 @@ public class PieceController : MonoBehaviour
     {
         movePermission = false;
         player = FindObjectOfType<PlayerController>();
-
-        rb = this.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -38,7 +36,7 @@ public class PieceController : MonoBehaviour
             force = new Vector2(player.startPoint.x - player.endPoint.x, player.startPoint.y - player.endPoint.y);
 
             rb.AddForce(force * power, ForceMode2D.Impulse);
-
+            GameManager.Instance.turnStarted = true;
             player.isReleased = false;
             movePermission = false;
         }

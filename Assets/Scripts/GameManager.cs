@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
 using JetBrains.Annotations;
+using UnityEditor.MemoryProfiler;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public List<PieceController> player1PieceControllers;
     public List<PieceController> player2PieceControllers;
+    public BallController ballController;
+    private int turn;
+
 
     public int maxPoint;
 
@@ -20,6 +24,7 @@ public class GameManager : MonoBehaviour
     #region Singleton
 
     private static GameManager instance;
+    public bool turnStarted;
 
     public static GameManager Instance
     {
@@ -57,7 +62,7 @@ public class GameManager : MonoBehaviour
         {
             var teamPiece = Instantiate(GameRuleContainer.Instance.team2Piece, piecePosition, Quaternion.identity);
             teamPiece.turn = false;
-            player1PieceControllers.Add(teamPiece);
+            player2PieceControllers.Add(teamPiece);
         }
     }
 
@@ -79,5 +84,35 @@ public class GameManager : MonoBehaviour
             // make ball fixed
             Destroy(FindObjectOfType<BallController>().GetComponent<Rigidbody2D>());
         }
+    }
+    public bool PiecesMoveEnded()
+    {
+        foreach (var player1Piece in player1PieceControllers)
+        {
+            if (player1Piece.rb.velocity != Vector2.zero) return false;
+        }
+        
+        foreach (var player2Piece in player2PieceControllers)
+        {
+            if (player2Piece.rb.velocity != Vector2.zero) return false;
+        }
+
+        if (ballController.rb.velocity != Vector2.zero) return false;
+        return true;
+    }
+
+    public void ChangeTurn()
+    {
+        turn = (turn + 1) % 2;
+        foreach (var player1Piece in player1PieceControllers)
+        {
+            player1Piece.turn = turn == 0;
+        }
+
+        foreach (var player2Piece in player2PieceControllers)
+        {
+            player2Piece.turn = turn == 1;
+        }
+        print("turn changed");
     }
 }

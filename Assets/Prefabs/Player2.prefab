@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3356062074672686864}
   - component: {fileID: 3356062074672686894}
   m_Layer: 0
-  m_Name: Opp1
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 83227f45849364ca890e7b4fbddf1bc7, type: 2}
@@ -138,3 +138,4 @@ MonoBehaviour:
   maxPower: {x: 3, y: 3}
   turn: 0
   movePermission: 0
+  rb: {fileID: 3356062074672686865}

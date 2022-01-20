@@ -21,6 +21,8 @@ namespace DefaultNamespace
 
         private void Awake()
         {
+            playerNumberContainer = new ThreePlayerNumberContainer();
+            gameWinRule = new TimeWinRule();
             if (instance == null)
             {
                 instance = this;

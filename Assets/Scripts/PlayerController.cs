@@ -56,5 +56,14 @@ public class PlayerController : MonoBehaviour
                 isReleased = true;
             }
         }
+
+        if (GameManager.Instance.turnStarted)
+        {
+            if (GameManager.Instance.PiecesMoveEnded())
+            {
+                GameManager.Instance.turnStarted = false;
+                GameManager.Instance.ChangeTurn();
+            }
+        }
     }
 }
