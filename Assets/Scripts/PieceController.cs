@@ -28,7 +28,7 @@ public class PieceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (movePermission && player.isReleased)
+        if (movePermission && player.isReleased && !GameManager.Instance.turnStarted)
         {
             //force = new Vector2(Mathf.Clamp(player.startPoint.x - player.endPoint.x, minPower.x, maxPower.x),
             //    Mathf.Clamp(player.startPoint.y - player.endPoint.y, minPower.y, maxPower.y));
