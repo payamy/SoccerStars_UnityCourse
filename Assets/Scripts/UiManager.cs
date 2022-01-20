@@ -16,28 +16,39 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        eventSystem.OnRightGoalEnter.AddListener(UpdateLeftScore);
-        eventSystem.OnLeftGoalEnter.AddListener(UpdateRightScore);
+        eventSystem.winEvent.AddListener(UpdateScore);
         eventSystem.OnLeftWin.AddListener(LeftPlayerWin);
         eventSystem.OnRightWin.AddListener(RightPlayerWin);
     }
 
-    public void UpdateRightScore()
+    private void UpdateScore(GoalSide goalSide)
+    {
+        if (goalSide == GoalSide.Left)
+        {
+            UpdateLeftScore();
+        }
+        else
+        {
+            UpdateRightScore();
+        }
+    }
+
+    private void UpdateRightScore()
     {
         rightScoreText.text = gameManager.rightPoint.ToString();
     }
 
-    public void UpdateLeftScore()
+    private void UpdateLeftScore()
     {
         leftScoreText.text = gameManager.leftPoint.ToString();
     }
 
-    public void LeftPlayerWin()
+    private void LeftPlayerWin()
     {
         gameOverText.text = "Left Win";
     }
 
-    public void RightPlayerWin()
+    private void RightPlayerWin()
     {
         gameOverText.text = "Right Win";
     }

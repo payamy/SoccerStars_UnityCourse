@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
             player2PieceControllers.Add(teamPiece);
         }
     }
-
     public bool PiecesMoveEnded()
     {
         foreach (var player1Piece in player1PieceControllers)
@@ -107,5 +106,38 @@ public class GameManager : MonoBehaviour
             player2Piece.turn = turn == 1;
         }
         print("turn changed");
+    }
+
+    public void BallEnteredGoal(GoalSide goalSide)
+    {
+        if (goalSide == GoalSide.Left)
+        {
+            leftPoint++;
+        }
+        else
+        {
+            rightPoint++;
+        }
+
+        ballController.transform.position = Vector3.zero;
+        ballController.rb.velocity = Vector3.zero;
+
+        var i = 0;
+        var playerNumberContainer = GameRuleContainer.Instance.playerNumberContainer;
+        
+        foreach (var piecePosition in playerNumberContainer.team1Positions)
+        {
+            player1PieceControllers[i].transform.position = piecePosition;
+            player1PieceControllers[i].rb.velocity = Vector2.zero;
+            i++;
+        }
+
+        i = 0;
+        foreach (var piecePosition in playerNumberContainer.team2Positions)
+        {
+            player2PieceControllers[i].transform.position = piecePosition;
+            player2PieceControllers[i].rb.velocity = Vector2.zero;
+            i++;
+        }
     }
 }
