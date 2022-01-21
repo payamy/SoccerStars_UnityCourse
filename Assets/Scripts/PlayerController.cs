@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
                 if (distance < 1f && pieces[i].turn)
                 {
                     startPoint = pieces[i].transform.position;
-                    // startPoint.z = 15;
 
                     pieces[i].movePermission = true;
                     isDragged = true;
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour
             if (isDragged)
             {
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-                // endPoint.z = 15;
 
                 isDragged = false;
                 isReleased = true;

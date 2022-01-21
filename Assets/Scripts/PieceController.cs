@@ -41,7 +41,6 @@ public class PieceController : MonoBehaviour
             
             arrow.gameObject.SetActive(true);
             var endPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // endPoint.z = 15;
             arrow.rotation = Quaternion.FromToRotation(Vector3.down,
                 new Vector2(player.startPoint.x - endPoint.x, player.startPoint.y - endPoint.y));
             var arrowScale = arrow.localScale;
