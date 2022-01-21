@@ -12,25 +12,21 @@ public class GameManager : MonoBehaviour
     public List<PieceController> player1PieceControllers;
     public List<PieceController> player2PieceControllers;
     public BallController ballController;
-    public WinStatus winStatus = WinStatus.NoWin;
     public int turn;
-
-
-    public int maxPoint;
 
     public EventSystemManager eventSystem;
 
-    #region Singleton
-
-    private static GameManager instance;
     public bool turnStarted;
     public bool gameFinished;
     public float gameTime;
+    
+    #region Singleton
+
+    private static GameManager instance;
 
     public static GameManager Instance
     {
         get => instance;
-        set => instance = value;
     }
 
     private void Awake()
@@ -93,14 +89,10 @@ public class GameManager : MonoBehaviour
     public bool PiecesMoveEnded()
     {
         foreach (var player1Piece in player1PieceControllers)
-        {
             if (player1Piece.rb.velocity != Vector2.zero) return false;
-        }
         
         foreach (var player2Piece in player2PieceControllers)
-        {
             if (player2Piece.rb.velocity != Vector2.zero) return false;
-        }
 
         if (ballController.rb.velocity != Vector2.zero) return false;
         return true;
@@ -110,27 +102,18 @@ public class GameManager : MonoBehaviour
     {
         turn = (turn + 1) % 2;
         foreach (var player1Piece in player1PieceControllers)
-        {
             player1Piece.turn = turn == 0;
-        }
 
         foreach (var player2Piece in player2PieceControllers)
-        {
             player2Piece.turn = turn == 1;
-        }
-        print("turn changed");
     }
 
     public void BallEnteredGoal(GoalSide goalSide)
     {
         if (goalSide == GoalSide.Left)
-        {
             leftPoint++;
-        }
         else
-        {
             rightPoint++;
-        }
 
         ballController.transform.position = Vector3.zero;
         ballController.rb.velocity = Vector3.zero;

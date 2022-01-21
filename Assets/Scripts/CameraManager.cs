@@ -8,13 +8,10 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        //const float targetAspect = 16.0f / 9.0f;
         var windowAspect = Screen.width / (float)Screen.height;
         var mainCamera = Camera.main;
         if (mainCamera == null) return;
-        var size = mainCamera.orthographicSize;
-        //if (!(windowAspect < targetAspect)) return;
-        var size1 = groundSize / windowAspect;
-        mainCamera.orthographicSize = size1;
+        var size = groundSize / windowAspect;
+        mainCamera.orthographicSize = size;
     }
 }

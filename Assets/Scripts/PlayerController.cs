@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public PieceController[] pieces;
+    
     private Camera cam;
-    private Rigidbody2D rb;
-
-    Vector2 force;
+    
     public Vector3 startPoint;
     public Vector3 endPoint;
 
     public bool isDragged;
     public bool isReleased;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         isDragged = false;
         isReleased = false;
         cam = Camera.main;
-        rb = this.GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !isDragged)
         {
-            PieceController[] pieces = FindObjectsOfType<PieceController>();
+            pieces = FindObjectsOfType<PieceController>();
             Vector3 v3Pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
             v3Pos = cam.ScreenToWorldPoint(v3Pos);
 
@@ -38,7 +35,7 @@ public class PlayerController : MonoBehaviour
                 if (distance < 1f && pieces[i].turn)
                 {
                     startPoint = pieces[i].transform.position;
-                    startPoint.z = 15;
+                    // startPoint.z = 15;
 
                     pieces[i].movePermission = true;
                     isDragged = true;
@@ -50,20 +47,17 @@ public class PlayerController : MonoBehaviour
             if (isDragged)
             {
                 endPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-                endPoint.z = 15;
+                // endPoint.z = 15;
 
                 isDragged = false;
                 isReleased = true;
             }
         }
 
-        if (GameManager.Instance.turnStarted)
+        if (GameManager.Instance.turnStarted && GameManager.Instance.PiecesMoveEnded())
         {
-            if (GameManager.Instance.PiecesMoveEnded())
-            {
-                GameManager.Instance.turnStarted = false;
-                GameManager.Instance.ChangeTurn();
-            }
+            GameManager.Instance.turnStarted = false;
+            GameManager.Instance.ChangeTurn();
         }
     }
 }

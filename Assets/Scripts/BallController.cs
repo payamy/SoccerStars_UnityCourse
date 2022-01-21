@@ -12,9 +12,7 @@ public class BallController : MonoBehaviour
     {
         if (!rb) return;
         if (rb.velocity.magnitude < 0.005f)
-        {
             rb.velocity = Vector2.zero;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

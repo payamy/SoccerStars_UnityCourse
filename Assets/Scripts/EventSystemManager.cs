@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class EventSystemManager : MonoBehaviour
 {
-    public WinEvent goalEvent;
+    public GoalEvent goalEvent;
     public UnityEvent onLeftWin;
     public UnityEvent onRightWin;
     public UnityEvent onTie;
@@ -14,7 +14,7 @@ public class EventSystemManager : MonoBehaviour
 
     private void Awake()
     {
-        goalEvent = new WinEvent();
+        goalEvent = new GoalEvent();
         onLeftWin = new UnityEvent();
         onRightWin = new UnityEvent();
         onTie = new UnityEvent();
@@ -22,10 +22,7 @@ public class EventSystemManager : MonoBehaviour
 }
 
 [Serializable]
-public class WinEvent : UnityEvent<GoalSide>
-{
-    
-}
+public class GoalEvent : UnityEvent<GoalSide> { }
 
 [Serializable]
 public enum GoalSide

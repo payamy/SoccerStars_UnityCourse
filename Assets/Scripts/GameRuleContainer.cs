@@ -20,8 +20,6 @@ public class GameRuleContainer : MonoBehaviour
 
     private void Awake()
     {
-        //playerNumberContainer = new ThreePlayerNumberContainer();
-        //gameWinRule = new TimeWinRule();
         if (instance == null)
         {
             instance = this;
