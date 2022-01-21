@@ -19,25 +19,18 @@ public class MenuController : MonoBehaviour
     private void LoadGameRuleContainer()
     {
         if (gameWinDropdown.value == 0)
-        {
             GameRuleContainer.Instance.gameWinRule = new MaxPointWinRule();
-        } else
-        {
+        else
             GameRuleContainer.Instance.gameWinRule = new TimeWinRule();
-        }
 
         if (playerCountDropdown.value == 0)
-        {
             GameRuleContainer.Instance.playerNumberContainer = new ThreePlayerNumberContainer();
-        } else
-        {
+        else
             GameRuleContainer.Instance.playerNumberContainer = new FourPlayerNumberContainer();
-        }
     }
 
     public void QuitGame()
     {
-        Debug.Log("QUIT");
         Application.Quit();
     }
 }
