@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78357c97482d549a9bd02bdd139b31c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieces: []
   startPoint: {x: 0, y: 0, z: 0}
   endPoint: {x: 0, y: 0, z: 0}
   isDragged: 0
@@ -595,7 +596,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player 2 Wins
+  m_Text: Player 1 Wins
 --- !u!222 &579051370
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -673,7 +674,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Player 1 Wins
+  m_Text: Player 2 Wins
 --- !u!222 &599022399
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1845,9 +1846,7 @@ MonoBehaviour:
   player1PieceControllers: []
   player2PieceControllers: []
   ballController: {fileID: 377983409}
-  winStatus: 0
   turn: 0
-  maxPoint: 3
   eventSystem: {fileID: 664281963}
   turnStarted: 0
   gameFinished: 0
